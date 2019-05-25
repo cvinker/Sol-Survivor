@@ -3,8 +3,8 @@ import java.awt.*;
 public class SolSurvivorMain {
 	public static void main(String args[]) {
 		
-		BombermanGUI gui = new BombermanGUI();
-		BombermanListener listener = new BombermanListener( gui );		
+		SolSurvivor gui = new SolSurvivorGUI();
+		SolSurvivorListener listener = new SolSurvivorListener( gui );		
 		
 		
 		
