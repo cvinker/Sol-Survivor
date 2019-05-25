@@ -31,19 +31,32 @@ public class Map
 	 */
 	public void loadMap( String filename ) throws Exception
 	{
+<<<<<<< HEAD
 		char[][] map = new char[16][12];
 		board = new Piece[16][12];
+=======
+		char[][] map = new char[13][15];
+		board = new Piece[13][15];
+>>>>>>> 2ffe635649441433946205c0a884ff40b6bc79f0
 		Scanner in = new Scanner( new FileReader( filename ) );
 		/** 1. Go through all of the characters in the array
 		  * 1.1 If the character represents Player 1 then
 		  * 1.1.1. Set the type of current piece on the board to Player 1 character, ''
 		  * Repeat 1.1 for Player 2-4, enemies, crates, blocks, and power-ups
 		  */
+<<<<<<< HEAD
 		for( int r = 0; r < 16; r++ )
 		{
 			map[r] = in.next().toCharArray();
 			
 			for( int c = 0; c < 12; c++ )
+=======
+		for( int r = 0; r < 13; r++ )
+		{
+			map[r] = in.next().toCharArray();
+			
+			for( int c = 0; c < 15; c++ )
+>>>>>>> 2ffe635649441433946205c0a884ff40b6bc79f0
 			{
 				switch( map[r][c] )
 				{
@@ -74,8 +87,13 @@ public class Map
 		}
 		
 		//Show the board on the screen
+<<<<<<< HEAD
 		for( int r = 0; r < 16; r++ )
 			for( int c = 0; c < 12; c++ )
+=======
+		for( int r = 0; r < 13; r++ )
+			for( int c = 0; c < 15; c++ )
+>>>>>>> 2ffe635649441433946205c0a884ff40b6bc79f0
 				SolSurvivor.setSquare( r, c, board[r][c] );
 	}
 
