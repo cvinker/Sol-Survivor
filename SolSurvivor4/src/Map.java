@@ -1,6 +1,7 @@
 import java.io.FileReader;
 import java.util.Scanner;
 public class Map {
+	static boolean loadMap = true;
 
 	public enum Piece {BASE, CARGO, FUEL, REDSAND, PLAYER};
 	private Piece[][] board; 
@@ -45,7 +46,9 @@ public class Map {
 		
 		for(int r = 0; r < 16; r++)
 			for(int c = 0; c < 12; c++)
-				SolSurvivorGUI.setSquare(r, c, board[r][c]);
+		
+		SolSurvivorGUI.setSquare(r, c, board[r][c]);
+		
 	}
 	
 	public void setBoard(Piece[][] board) {
@@ -56,7 +59,9 @@ public class Map {
 		return board;
 	}
 
-
+	public void clearBoard() {
+		loadMap = true;
+	}
 
 	
 

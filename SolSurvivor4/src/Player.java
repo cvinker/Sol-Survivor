@@ -7,12 +7,8 @@ public class Player {
 
 	private int row;
 	private int colum;
-	private int score;
 	private int dx;
 	private int dy;
-	private int keyMove;
-	private boolean set;
-	
 	public Player(int r, int c)
 	{
 		row = r;
@@ -23,7 +19,7 @@ public class Player {
 	
 	public void move(int direction) throws Exception
 	{
-		
+		RemoveOldPlayer();
 		dx = dy = 0;
 		if(direction == KeyEvent.VK_UP)
 			dy = -1;
@@ -37,27 +33,52 @@ public class Player {
 		Map.Piece[][] temp = SolSurvivorGUI.getBoard().getBoard();
 		
 		if(row + dy >= 0 && row + dy <16 && colum + dx >= 0 && colum + dx < 12 && temp[row + dy][colum + dx] != Map.Piece.BASE) {
+
+		
+		
+		
+		
+		
+			SolSurvivorGUI.setSquare( row, colum, Map.Piece.PLAYER );
+			temp[row][colum] = Map.Piece.PLAYER;
+			SavePlayerLocate(row);
+			SavePlayerLocateC(colum);
+
+			row += dy;
+			colum += dx;
+		
+			
+			direction = 0;
+
 			
 		}
-		
-		if(!set)
-		{
-			temp[row][colum] = Map.Piece.REDSAND;
-			SolSurvivorGUI.setSquare( row, colum, Map.Piece.REDSAND );
+		else if(temp[row + dy][colum+dx]==Map.Piece.BASE) {
+			JOptionPane.showMessageDialog(null,  "You are in base!");
 		}
-		SolSurvivorGUI.setSquare( row, colum, Map.Piece.PLAYER );
-		temp[row][colum] = Map.Piece.PLAYER;
-		set = true;
+		else if(temp[row+dy][colum+dx]==Map.Piece.CARGO ||temp[row+dy][colum+dx]==Map.Piece.FUEL) {
+			
+		}
+		else if(row > 16 ||colum > 16){
+			JOptionPane.showMessageDialog(null,  "You are out of bounds and almost out of power! Go back!");
+
+		}
 		
-		//else {
-		row += dy;
-		colum += dx;
 		
 		
-	
+		
+		
 	}
-	
-	
+	static int SavedPlayerRow;
+	static int SavedPlayerColum;
+	public static int SavePlayerLocate(int row) {
+		return( SavedPlayerRow = row);
+	}
+	public static int SavePlayerLocateC(int colum) {
+		return( SavedPlayerColum = colum);
+	}
+	public static void RemoveOldPlayer() {
+		SolSurvivorGUI.setSquare(SavedPlayerRow, SavedPlayerColum, Map.Piece.REDSAND );
+	}
 	
 	
 	

@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.io.FileReader;
+import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -27,7 +29,7 @@ public class SolSurvivorGUI {
 		}
 	
 	
-	frame.setContentPane(panel);
+	frame.setContentPane(panel); 
 	frame.setSize(750,800);
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -89,6 +91,9 @@ public class SolSurvivorGUI {
 	public static Player[] getPlayers() {
 		return players;
 	}
+	
+	
+	
 }
 	
 	
