@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.io.FileReader;
 import java.util.Scanner;
 
@@ -92,4 +93,118 @@ public class Map
 	public Piece[][] getBoard() {
 		return board;
 	}
+=======
+import java.io.FileReader;
+import java.util.Scanner;
+
+/**
+ * Map class
+ * Keeps track of all of the pieces on the board
+ */
+public class Map
+{
+	public enum Piece { BLOCK, BOMB, COMPUTER, CRATE, EXPLOSION, PLAYER, NOTHING }; /** The different types of pieces */
+	private Piece[][] board; /** The pieces on the board */
+	
+	/**
+	 * Set up the board
+	 * Load the map from a text file
+	 * 
+	 * @param filename File to load the map from
+	 */
+	public Map() throws Exception
+	{
+		/**
+		 * 1. Load the default map
+		 */
+		loadMap( "default.txt" );
+	}
+	
+	/**
+	 * Loads the map
+	 * @param filename The filename of the map to load
+	 * @throws Exception If the file doesn't exist
+	 */
+	public void loadMap( String filename ) throws Exception
+	{
+<<<<<<< HEAD
+		char[][] map = new char[16][12];
+		board = new Piece[16][12];
+=======
+		char[][] map = new char[13][15];
+		board = new Piece[13][15];
+>>>>>>> 2ffe635649441433946205c0a884ff40b6bc79f0
+		Scanner in = new Scanner( new FileReader( filename ) );
+		/** 1. Go through all of the characters in the array
+		  * 1.1 If the character represents Player 1 then
+		  * 1.1.1. Set the type of current piece on the board to Player 1 character, ''
+		  * Repeat 1.1 for Player 2-4, enemies, crates, blocks, and power-ups
+		  */
+<<<<<<< HEAD
+		for( int r = 0; r < 16; r++ )
+		{
+			map[r] = in.next().toCharArray();
+			
+			for( int c = 0; c < 12; c++ )
+=======
+		for( int r = 0; r < 13; r++ )
+		{
+			map[r] = in.next().toCharArray();
+			
+			for( int c = 0; c < 15; c++ )
+>>>>>>> 2ffe635649441433946205c0a884ff40b6bc79f0
+			{
+				switch( map[r][c] )
+				{
+				case '1':
+					board[r][c] = Piece.PLAYER;
+					break;
+				case 'C':
+					board[r][c] = Piece.CRATE;
+					break;
+				case 'c':
+					board[r][c] = Piece.COMPUTER;
+					break;
+				case 'B':
+					board[r][c] = Piece.BLOCK;
+					break;
+				case 'b':
+					board[r][c] = Piece.BOMB;
+					break;
+				case 'N':
+					board[r][c] = Piece.NOTHING;
+					break;
+				default:
+					break;
+				}
+				
+				
+			}
+		}
+		
+		//Show the board on the screen
+<<<<<<< HEAD
+		for( int r = 0; r < 16; r++ )
+			for( int c = 0; c < 12; c++ )
+=======
+		for( int r = 0; r < 13; r++ )
+			for( int c = 0; c < 15; c++ )
+>>>>>>> 2ffe635649441433946205c0a884ff40b6bc79f0
+				SolSurvivor.setSquare( r, c, board[r][c] );
+	}
+
+	/**
+	 * @param board the board to set
+	 */
+	public void setBoard(Piece[][] board) {
+		this.board = board;
+	}
+
+	/**
+	 * @return the board
+	 */
+	public Piece[][] getBoard() {
+		return board;
+	}
+>>>>>>> dc8393f03723d4f4a1384debafde349f2ef476ca
 }
