@@ -11,6 +11,11 @@ public class SolSurvivor {
 			}catch(Exception e) {}
 			SolCounter++;
 			System.out.println("Sols passed: " + SolCounter);
+			if(SolCounter == 10)
+			{
+				System.out.println("My battery is low and it's getting dark...");
+				Thread.sleep(1000);
+			}
 		}		
 	}
 }

@@ -43,7 +43,7 @@ public class SolSurvivorListener implements KeyListener {
 	
 		
 		else if(keycode == KeyEvent.VK_SPACE) {
-			//ADD A METHOD FOR EATING/NUTRIENT
+			System.out.println("Resource consumed!");
 		}
 		
 		
