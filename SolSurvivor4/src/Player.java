@@ -55,12 +55,9 @@ public class Player {
 		else if(temp[row + dy][colum+dx]==Map.Piece.BASE) {
 			JOptionPane.showMessageDialog(null,  "You are in base!");
 		}
-		else if(temp[row+dy][colum+dx]==Map.Piece.CARGO ||temp[row+dy][colum+dx]==Map.Piece.FUEL) {
-			
-		}
-		else if(row > 16 ||colum > 16){
-			JOptionPane.showMessageDialog(null,  "You are out of bounds and almost out of power! Go back!");
-
+		
+		else if(temp[row+dy][colum+dx] == Map.Piece.FUEL) {
+			ResourceCounter();
 		}
 		
 		
@@ -68,6 +65,8 @@ public class Player {
 		
 		
 	}
+	static int resourceCounter;
+	static int SolCounter;
 	static int SavedPlayerRow;
 	static int SavedPlayerColum;
 	public static int SavePlayerLocate(int row) {
@@ -80,7 +79,10 @@ public class Player {
 		SolSurvivorGUI.setSquare(SavedPlayerRow, SavedPlayerColum, Map.Piece.REDSAND );
 	}
 	
-	
+	public static void ResourceCounter() {
+		resourceCounter++;
+		System.out.println("Resource count = " + resourceCounter);
+	}
 	
 	
 	
