@@ -32,32 +32,36 @@ public class Player {
 		
 		Map.Piece[][] temp = SolSurvivorGUI.getBoard().getBoard();
 		
-		if(row + dy >= 0 && row + dy <16 && colum + dx >= 0 && colum + dx < 12 && temp[row + dy][colum + dx] != Map.Piece.BASE) {
+		if(row + dy >= 0 && row + dy <16 && colum + dx >= 0 && colum + dx < 12 && temp[row + dy][colum + dx] != Map.Piece.BASE && temp[row + dy][colum + dx] != Map.Piece.FUEL && temp[row + dy][colum + dx] != Map.Piece.CARGO ) {
 
-		
-		
-		
-		
 		
 			SolSurvivorGUI.setSquare( row, colum, Map.Piece.PLAYER );
 			temp[row][colum] = Map.Piece.PLAYER;
 			SavePlayerLocate(row);
 			SavePlayerLocateC(colum);
 
-			row += dy;
-			colum += dx;
+			
 		
 			
 			direction = 0;
-
+			row += dy;
+			colum += dx;
 			
 		}
-		else if(temp[row + dy][colum+dx]==Map.Piece.BASE) {
+		else if(temp[row + dy][colum + dx] == Map.Piece.BASE) {
 			JOptionPane.showMessageDialog(null,  "You are in base!");
 		}
 		
-		else if(temp[row+dy][colum+dx] == Map.Piece.FUEL) {
-			ResourceCounter();
+		else if(temp[row + dy][colum + dx] == Map.Piece.FUEL) {
+			resourceCounter++;
+			System.out.println("Resource count = " + resourceCounter);
+			SolSurvivorGUI.setSquare( row, colum, Map.Piece.PLAYER );
+			temp[row][colum] = Map.Piece.PLAYER;
+			SavePlayerLocate(row);
+			SavePlayerLocateC(colum);
+			direction = 0;
+			row += dy;
+			colum += dx;
 		}
 		
 		
@@ -79,10 +83,7 @@ public class Player {
 		SolSurvivorGUI.setSquare(SavedPlayerRow, SavedPlayerColum, Map.Piece.REDSAND );
 	}
 	
-	public static void ResourceCounter() {
-		resourceCounter++;
-		System.out.println("Resource count = " + resourceCounter);
-	}
+	
 	
 	
 	

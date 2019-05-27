@@ -50,7 +50,6 @@ public class SolSurvivorListener implements KeyListener {
 		
 	}
 		public void keyReleased(KeyEvent event) {
-			 event.setKeyCode(0); 
 		}
 		public void keyTyped(KeyEvent event) {
 			
