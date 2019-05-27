@@ -55,7 +55,7 @@ public class SolSurvivorGUI {
 		else if (type == Map.Piece.CARGO)
 			s = "Images/Cargo.png";
 		else if (type == Map.Piece.PLAYER)
-			s = "Images/Curiosity.png";
+			s = "Images/Player.png";
 		else if (type == Map.Piece.FUEL)
 			s = "Images/Fuel.png";
 		else if (type == Map.Piece.REDSAND)
