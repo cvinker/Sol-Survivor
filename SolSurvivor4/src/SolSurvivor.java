@@ -15,7 +15,7 @@ public class SolSurvivor {
 			{
 				System.out.println("My battery is low and it's getting dark...");
 				Thread.sleep(1000);
-				System.exit(0);
+//				System.exit(0);
 			}
 		}		
 	}
